@@ -25,12 +25,7 @@ public final class RemoteFeedLoader: FeedLoader {
 			}
 			switch result {
 			case let .success((data, response)):
-				do {
-					let items = try FeedImageMapper.map(data: data, response: response)
-					completion(.success(items))
-				} catch {
-					completion(.failure(RemoteFeedLoader.Error.invalidData))
-				}
+				completion(FeedImageMapper.map(data: data, response: response))
 			case .failure(_):
 				completion(.failure(RemoteFeedLoader.Error.connectivity))
 			}
