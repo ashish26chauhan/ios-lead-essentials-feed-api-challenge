@@ -9,6 +9,7 @@
 import Foundation
 
 class FeedImageMapper {
+	private init() {}
 	private static var OK_200 = 200
 
 	private struct Root: Decodable {
